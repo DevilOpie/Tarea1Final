@@ -10,7 +10,7 @@
         <!--iniView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="iniView" id="BYZ-38-t0r" customClass="ViewController" customModule="juegoIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="iniView" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Iniciar Partida"/>
                                 <connections>
-                                    <action selector="buttonGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NuI-0F-z36"/>
+                                    <segue destination="gUK-vb-X1G" kind="presentation" modalPresentationStyle="fullScreen" id="9SM-PZ-qCM"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jueguilloLogo-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="xmN-OP-Wws">
@@ -40,29 +40,19 @@
                             <constraint firstItem="xmN-OP-Wws" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cdh-ee-d5f"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="gUK-vb-X1G" kind="modal" identifier="toGame" modalPresentationStyle="fullScreen" id="ckK-zf-Z6B"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-83.206106870229007" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="Rpj-c9-jpZ">
             <objects>
-                <viewController id="gUK-vb-X1G" sceneMemberID="viewController">
+                <viewController id="gUK-vb-X1G" customClass="GameViewController" customModule="juegoIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vKW-Qd-Obo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ronda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xh-Bc-yqH">
-                                <rect key="frame" x="135.66666666666666" y="399.66666666666669" width="121.99999999999997" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" red="0.89019608500000003" green="0.37254902719999999" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="coa-Yp-sIt">
                                 <rect key="frame" x="21.666666666666657" y="50" width="350" height="752"/>
                                 <subviews>
@@ -79,6 +69,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="king"/>
+                                                <connections>
+                                                    <action selector="pressedButton:" destination="gUK-vb-X1G" eventType="touchUpInside" id="HQa-lA-YUC"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw7-t6-aMw">
                                                 <rect key="frame" x="200" y="8.6666666666666856" width="150" height="200"/>
@@ -88,6 +81,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="knight"/>
+                                                <connections>
+                                                    <action selector="pressedButton:" destination="gUK-vb-X1G" eventType="touchUpInside" id="4pB-rZ-qbz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -101,6 +97,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="pawn"/>
+                                                <connections>
+                                                    <action selector="pressedButton:" destination="gUK-vb-X1G" eventType="touchUpInside" id="ssf-kn-Bqb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teV-fd-S6u">
                                                 <rect key="frame" x="200" y="8.6666666666667425" width="150" height="200"/>
@@ -109,6 +108,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="queen"/>
+                                                <connections>
+                                                    <action selector="pressedButton:" destination="gUK-vb-X1G" eventType="touchUpInside" id="bON-zn-I76"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -127,10 +129,66 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hbp-Eq-No4"/>
+                    <connections>
+                        <outlet property="mainImg" destination="FYB-7a-z2g" id="JBv-RO-Ndm"/>
+                        <outletCollection property="buttons" destination="Rw7-t6-aMw" collectionClass="NSMutableArray" id="gTQ-Xk-sil"/>
+                        <outletCollection property="buttons" destination="Dpz-WD-Mec" collectionClass="NSMutableArray" id="77E-CV-ZkI"/>
+                        <outletCollection property="buttons" destination="Yo5-tX-0oh" collectionClass="NSMutableArray" id="e3S-7g-hUF"/>
+                        <outletCollection property="buttons" destination="teV-fd-S6u" collectionClass="NSMutableArray" id="A0T-As-bsT"/>
+                        <segue destination="PZ9-sK-aBk" kind="presentation" identifier="toScoreView" modalPresentationStyle="fullScreen" id="7a4-xO-zhE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIM-Kb-jpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872.51908396946567" y="-2.1126760563380285"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xZk-1J-wxw">
+            <objects>
+                <viewController id="PZ9-sK-aBk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ESz-MD-Dfw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-po-Bsk">
+                                <rect key="frame" x="96.666666666666686" y="309" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="TIx-KO-9nZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-IJ-ari">
+                                <rect key="frame" x="158.66666666666666" y="206.66666666666666" width="76" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.92156863209999995" green="0.47843140360000003" blue="0.67450982329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-55-iuj">
+                                <rect key="frame" x="146.66666666666666" y="602.66666666666663" width="100" height="46.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GP9-55-iuj" secondAttribute="height" multiplier="15:7" id="e6C-hg-Go6"/>
+                                    <constraint firstAttribute="width" constant="100" id="nod-8f-qve"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Guardar" cornerStyle="large"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D7U-Tv-Mvf"/>
+                        <color key="backgroundColor" red="0.1215686351" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="YQc-po-Bsk" firstAttribute="centerY" secondItem="ESz-MD-Dfw" secondAttribute="centerY" constant="-100" id="8SH-b1-oFm"/>
+                            <constraint firstItem="YQc-po-Bsk" firstAttribute="centerX" secondItem="ESz-MD-Dfw" secondAttribute="centerX" id="Joc-QS-Psc"/>
+                            <constraint firstItem="GP9-55-iuj" firstAttribute="centerY" secondItem="ESz-MD-Dfw" secondAttribute="centerY" constant="200" id="KRr-DM-Fau"/>
+                            <constraint firstItem="hGM-IJ-ari" firstAttribute="centerX" secondItem="ESz-MD-Dfw" secondAttribute="centerX" id="edK-iu-Hgr"/>
+                            <constraint firstItem="GP9-55-iuj" firstAttribute="centerX" secondItem="ESz-MD-Dfw" secondAttribute="centerX" id="fsW-Wg-Kt5"/>
+                            <constraint firstItem="hGM-IJ-ari" firstAttribute="centerY" secondItem="ESz-MD-Dfw" secondAttribute="centerY" constant="-200" id="hfS-O9-XWU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMa-1O-FDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="-2"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.89019608500000003" green="0.37647059560000001" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
