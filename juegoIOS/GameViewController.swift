@@ -17,8 +17,11 @@ public class GameViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        timer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(mostrarImagen), userInfo: nil, repeats: true)
         order.shuffle()
+        //timer=Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(mostrarImagen), userInfo: nil, repeats: true)
+        timer=Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { t in
+            self.mostrarImagen()
+        })
         print(order)
     }
     @IBOutlet var buttons: [UIButton]!
@@ -32,6 +35,10 @@ public class GameViewController: UIViewController {
                 print(playerNums)
             }
         }
+        if playerNums.count == 4{
+            punt = compareArrays()
+            performSegue(withIdentifier: "toScoreView", sender: nil)
+        }
     }
     
     @objc func mostrarImagen(){
@@ -43,20 +50,20 @@ public class GameViewController: UIViewController {
             mainImg.image=imageArray[order[i]]
             i += 1
         }
-        if playerNums.count == 4{
-            var score = compareArrays()
-            performSegue(withIdentifier: "toScoreView", sender: score)
-        }
-        print (i)
+       
+        //print (i)
     }
      func compareArrays()-> Int{
-        var score = 0
+         punt = 0
         for i in 0..<order.count {
-               if order[i] == playerNums[i] {
-                   score += 1
-               }
-           }
-         return score
+            if order[i] == playerNums[i] {
+                      punt += 2
+                  }
+            else {
+                      punt -= 1
+                  }
+              }
+         return punt
     }
     
     
